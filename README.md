@@ -7,9 +7,12 @@ INSTALL
 
 apt install libssl-dev libdb++-dev libboost-all-dev libqrencode-dev miniupnpc libminiupnpc-dev
 после этого 
+
 chmod u+x bugod
-./bugod -daemon
+./bugod -daemon -txindex
+
 правим конф ПИШЕМ НОДЫ
+
 /bugod getinfo
 проверяем счетчик блоков
 
