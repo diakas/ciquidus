@@ -40,12 +40,15 @@ mongo
 вставить такие же в settings.json потом
 
 Installing the Explorer
+
 apt install libkrb5-dev
 git clone https://github.com/diakas/ciquidus.git
 cd ciquidus && npm install --production
 cp ./settings.json.template ./settings.json
 
-редактировать settings.json с кучей нюансов см. https://youtu.be/laeV2slJgc8
+редактировать settings.json с кучей нюансов см. 
+https://youtu.be/laeV2slJgc8
+
 некоторые моменты:
 1)"genesis_tx": "4592ecfada9248d7847196fa0c2796a59185a01b29ddc38242b4b9a9c7f2a3c7",
   "genesis_block": "0000af00b9e88a91147276bdf4689d3e202eb5d6d1c21e3035967f08d65a8d74",
