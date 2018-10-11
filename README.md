@@ -1,6 +1,90 @@
 Ciquidus Alpha - 1.7.2
 ================
 
+fork for BUGOCOIN
+
+INSTALL
+
+apt install libssl-dev libdb++-dev libboost-all-dev libqrencode-dev miniupnpc libminiupnpc-dev
+после этого 
+chmod u+x bugod
+./bugod -daemon
+правим конф ПИШЕМ НОДЫ
+/bugod getinfo
+проверяем счетчик блоков
+
+apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+apt-get update
+apt-get install -y mongodb-org
+apt-get install upstart-sysv -y
+apt-get install libgmp-dev - без него не работало????
+reboot
+service mongod start
+service mongod stop
+service mongod restart
+
+Installing Nodejs
+apt-get update
+apt-get install nodejs nodejs-legacy -y
+apt-get install npm -y
+
+Creating a MongoDB Database
+mongo
+> use explorerdb
+> db.createUser( { user: "dbuser-bugo-conf", pwd: "dbpassw-bugo-conf", roles: [ "readWrite" ] } )
+> exit
+вставить такие же в settings.json потом
+
+Installing the Explorer
+apt install libkrb5-dev
+git clone https://github.com/diakas/ciquidus.git
+cd ciquidus && npm install --production
+cp ./settings.json.template ./settings.json
+
+редактировать settings.json с кучей нюансов см. https://youtu.be/laeV2slJgc8
+некоторые моменты:
+1)"genesis_tx": "4592ecfada9248d7847196fa0c2796a59185a01b29ddc38242b4b9a9c7f2a3c7",
+  "genesis_block": "0000af00b9e88a91147276bdf4689d3e202eb5d6d1c21e3035967f08d65a8d74",
+2)"api": {
+    "blockindex": 95774,
+    "blockhash": "527c372b964e7e1e8a3c706d404fc2863fd512d620fe3af238d383eef7ce2a5f",
+    "txhash": "79ed5f307c8c8fbdb14fa7748175157dd0d638d822f5e993b873e123ecdf99eb",
+    "address": "Bbv7jhbtZbCwZKizM6fPDYs8oUjGtMvm1m"
+  },
+это вытаскивается из любого кошелька заходим в кансоль getblockhash 0 это будет genesis block
+потом пишем getblock и то, что нам выдало предыдущее и берём оттуда genesis_tx
+
+cd ciquidus
+npm start
+
+проверяем по адресу сервера х.х.х.х:3001/
+
+теперь реиндекс нужно два окна 
+в первом 
+npm start
+во втором 
+node scripts/sync.js index reindex - занимает много времени
+
+теперь нужно настроить автообновление кронтаб чтоб реиндексировал например раз в 5 минут 
+Install Forever to keep the js running - чтоб можно закрыть окно - работает как служба в фоне
+npm install forever -g
+npm install forever-monitor
+
+Start the Explorer в фоновом режиме
+forever start -c "npm start" ./
+
+Add Cron to File to update the explorer
+crontab -e
+*/2 * * * * cd /root/explorer && /usr/bin/node scripts/sync.js index update > /dev/null 2>&1
+*/5 * * * * cd /root/explorer && /usr/bin/node scripts/peer.js > /dev/null 2>&1
+
+если сбросило и пишет "script is already running."
+rm tmp/index.pid
+
+node scripts/sync.js index update
+
+
 The Chaincoin block explorer.
 
 This project is a fork of [Iquidus Explorer](https://github.com/iquidus/explorer) so massive thanks go out to Luke Williams for his code! Thank you!!!
