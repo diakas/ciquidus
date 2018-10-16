@@ -5,6 +5,21 @@ fork for BUGOCOIN
 
 INSTALL
 
+apt install zram-config
+
+sysctl vm.swappiness=10
+
+cat /proc/sys/vm/swappiness
+
+
+sysctl -p
+
+swapon -s
+
+free -m
+
+
+
 apt install libssl-dev libdb++-dev libboost-all-dev libqrencode-dev miniupnpc libminiupnpc-dev
 после этого 
 
