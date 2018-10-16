@@ -108,7 +108,7 @@ https://youtu.be/laeV2slJgc8
 это вытаскивается из любого кошелька заходим в кансоль getblockhash 0 это будет genesis block
 потом пишем getblock и то, что нам выдало предыдущее и берём оттуда genesis_tx
 
-cd ciquidus
+Переходим в папку (если не там) cd ciquidus
 
 npm start
 
