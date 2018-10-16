@@ -63,9 +63,7 @@ Installing Nodejs
 
 apt-get update
 
-apt-get install nodejs nodejs-legacy -y
-
-apt-get install npm -y
+apt-get install nodejs nodejs-legacy npm -y
 
 
 Creating a MongoDB Database
