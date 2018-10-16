@@ -116,9 +116,14 @@ forever start -c "npm start" ./
 Add Cron to File to update the explorer
 
 crontab -e
+*/5 * * * * cd /root/ciquidus && /usr/bin/node scripts/sync.js index update > /dev/null 2>&1
+*/20 * * * * cd /root/ciquidus && /usr/bin/node scripts/peer.js > /dev/null 2>&1
 
-*/2 * * * * cd /root/ciquidus && /usr/bin/node scripts/sync.js index update > /dev/null 2>&1
-*/5 * * * * cd /root/ciquidus && /usr/bin/node scripts/peer.js > /dev/null 2>&1
+@reboot /root/bugod -daemon -txindex > /dev/null 2>&1
+@reboot rm -f /root/ciquidus/tmp/index.pid
+@reboot cd /root/ciquidus && /usr/bin/node forever start -c "npm start"./ > /dev/null 2>&1
+
+
 
 если сбросило и пишет "script is already running."
 
