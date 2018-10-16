@@ -137,7 +137,9 @@ forever start -c "npm start" ./
 Add Cron to File to update the explorer
 
 crontab -e
+
 */5 * * * * cd /root/ciquidus && /usr/bin/node scripts/sync.js index update > /dev/null 2>&1
+
 */20 * * * * cd /root/ciquidus && /usr/bin/node scripts/peer.js > /dev/null 2>&1
 
 @reboot /root/bugod -daemon -txindex > /dev/null 2>&1
@@ -152,6 +154,18 @@ rm tmp/index.pid
 
 node scripts/sync.js index update
 
+
+если хочешь обновить настройки
+
+forever lists
+
+cd ciquidus
+
+forever stop -c "npm start" ./
+
+правим settings.json
+
+forever start -c "npm start" ./
 
 The Chaincoin block explorer.
 
