@@ -114,25 +114,21 @@ npm start
 
 проверяем по адресу сервера х.х.х.х:3001/
 
-теперь реиндекс нужно два окна 
-
-в первом 
-npm start
-
-во втором 
-node scripts/sync.js index reindex - занимает много времени
-
-
-теперь нужно настроить автообновление кронтаб чтоб реиндексировал например раз в 5 минут 
-Install Forever to keep the js running - чтоб можно закрыть окно - работает как служба в фоне
+теперь реиндекс для этого сначала Install Forever to keep the js running - чтоб можно закрыть окно - работает как служба в фоне
 
 npm install forever -g
-
-npm install forever-monitor
 
 Start the Explorer в фоновом режиме
 
 forever start -c "npm start" ./
+
+проверка работы: forever lists (остановка forever stop -c "npm start" ./ )
+
+
+node scripts/sync.js index reindex - занимает много времени в зависимости разменра блокчейна и скорости системы - 2-3 часа а у больших блокчейнов дней и недель!!!
+
+
+теперь нужно настроить автообновление кронтаб чтоб реиндексировал например раз в 5 минут 
 
 Add Cron to File to update the explorer
 
@@ -163,7 +159,7 @@ cd ciquidus
 
 forever stop -c "npm start" ./
 
-правим settings.json
+правим nano settings.json
 
 forever start -c "npm start" ./
 
