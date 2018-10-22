@@ -24,7 +24,7 @@ apt install libssl-dev libdb++-dev libboost-all-dev libqrencode-dev miniupnpc li
 
 после этого 
 
-https://github.com/diakas/bugocoin/releases/download/pre/bugod-lin.zip
+wget https://github.com/diakas/bugocoin/releases/download/pre/bugod-lin.zip
 
 распаковываем
 
