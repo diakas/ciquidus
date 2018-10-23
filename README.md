@@ -122,7 +122,7 @@ Start the Explorer в фоновом режиме
 
 forever start -c "npm start" ./
 
-проверка работы: forever lists (остановка forever stop -c "npm start" ./ )
+проверка работы: forever list (остановка forever stop -c "npm start" ./ )
 
 
 node scripts/sync.js index reindex - занимает много времени в зависимости разменра блокчейна и скорости системы - 2-3 часа а у больших блокчейнов дней и недель!!!
@@ -153,7 +153,7 @@ node scripts/sync.js index update
 
 если хочешь обновить настройки
 
-forever lists
+forever list
 
 cd ciquidus
 
