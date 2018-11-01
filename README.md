@@ -18,8 +18,10 @@ swapon -s
 
 free -m
 
-add-apt-repository ppa:bitcoin/bitcoin
+add-apt-repository ppa:bitcoin/bitcoin  --- 18.04
+
 sudo apt-get update
+
 sudo apt-get install libdb4.8-dev libdb4.8++-dev build-essential libtool autotools-dev autoconf pkg-config sudo libssl-dev libboost-all-dev git npm nodejs nodejs-legacy libminiupnpc-dev redis-server 
 
 
