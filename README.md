@@ -18,6 +18,9 @@ swapon -s
 
 free -m
 
+add-apt-repository ppa:bitcoin/bitcoin
+sudo apt-get update
+sudo apt-get install libdb4.8-dev libdb4.8++-dev build-essential libtool autotools-dev autoconf pkg-config sudo libssl-dev libboost-all-dev git npm nodejs nodejs-legacy libminiupnpc-dev redis-server 
 
 
 apt install libssl-dev libdb++-dev libboost-all-dev libqrencode-dev miniupnpc libminiupnpc-dev
