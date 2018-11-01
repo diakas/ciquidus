@@ -45,6 +45,10 @@ chmod u+x bugod
 
 проверяем счетчик блоков
 
+
+https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-18-04
+
+
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
 
 echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.2.list
