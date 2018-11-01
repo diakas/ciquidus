@@ -18,18 +18,20 @@ swapon -s
 
 free -m
 
-add-apt-repository ppa:bitcoin/bitcoin  --- 18.04
+(add-apt-repository ppa:bitcoin/bitcoin  --- 18.04
 
 sudo apt-get update
 
-sudo apt-get install libdb4.8-dev libdb4.8++-dev build-essential libtool autotools-dev autoconf pkg-config sudo libssl-dev libboost-all-dev git npm nodejs nodejs-legacy libminiupnpc-dev redis-server 
+sudo apt-get install libdb4.8-dev libdb4.8++-dev build-essential libtool autotools-dev autoconf pkg-config sudo libssl-dev libboost-all-dev git npm nodejs nodejs-legacy libminiupnpc-dev redis-server ) ????
 
 
 apt install libssl-dev libdb++-dev libboost-all-dev libqrencode-dev miniupnpc libminiupnpc-dev
 
 после этого 
 
-wget https://github.com/diakas/bugocoin/releases/download/pre/bugod-lin.zip
+wget https://github.com/diakas/bugocoin/releases/download/pre/bugod16.04.zip
+
+или https://github.com/diakas/bugocoin/releases/download/pre/bugod18.04.zip
 
 распаковываем
 
