@@ -139,6 +139,9 @@ forever start -c "npm start" ./
 node scripts/sync.js index reindex - занимает много времени в зависимости разменра блокчейна и скорости системы - 2-3 часа а у больших блокчейнов дней и недель!!!
 
 
+forever start -c "node scripts/sync.js index update" ./
+
+
 теперь нужно настроить автообновление кронтаб чтоб реиндексировал например раз в 5 минут 
 
 Add Cron to File to update the explorer
